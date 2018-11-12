@@ -90,7 +90,8 @@ function _M.stat()
         request_5xx = status:get(KEY_REQUEST_5XX),
 
         con_active = ngx.var.connections_active,
-        con_rw = ngx.var.connections_reading + ngx.var.connections_writing,
+        -- 低版本的openrestry没有connections_reading 变量是 nil, 需要1.9.7.3+
+        -- con_rw = ngx.var.connections_reading + ngx.var.connections_writing,
         con_reading = ngx.var.connections_reading,
         con_writing = ngx.var.connections_writing,
         con_idle = ngx.var.connections_waiting
